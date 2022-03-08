@@ -17,6 +17,9 @@ class ShopCatalog:
         if item and price:
             ShopCatalog.__product_range[item] = price
 
+    def delete_item_from_product_range(self, item):
+        del ShopCatalog.__product_range[item]
+
 
 
 

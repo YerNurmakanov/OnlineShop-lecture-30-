@@ -37,6 +37,8 @@ class Administrator:
         if item and price:
             catalog.ShopCatalog.add_item_to_product_range(self, item, price)
 
+    def delete_item_from_catalog(self, item):
+        catalog.ShopCatalog.delete_item_from_product_range(self, item)
 
 
 
