@@ -12,7 +12,6 @@ class ConsumerOrder:
     def __str__(self):
         return f'{ConsumerOrder.__items_ordered}'
 
-# Hello world!
 
 
 
