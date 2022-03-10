@@ -1,5 +1,5 @@
 import consumer
-
+import catalog
 
 class Administrator(consumer.Consumer):
 
@@ -52,10 +52,10 @@ class Administrator(consumer.Consumer):
 
     def add_item_to_catalog(self, item, price):
         if item and price:
-            ShopCatalog.add_item_to_product_range(item, price)
+            catalog.ShopCatalog.add_item_to_product_range(item, price)
 
     def delete_item_from_catalog(self, item):
-        ShopCatalog.delete_item_from_product_range(item)
+        catalog.ShopCatalog.delete_item_from_product_range(item)
 
 
 
