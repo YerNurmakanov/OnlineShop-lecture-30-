@@ -78,5 +78,9 @@ simple_fellow.items_bought([Micky_order1, Micky_order2])                        
 
 
 # Пример реализации методов админа
+layman = consumer.Consumer('Looney', 'Toon')
+Looney_order = catalog.ConsumerOrder(layman)
+Looney_order.order_item('Milk', catalog1)
 
+admin.track_consumers([simple_fellow, layman])
 admin.track_catalogs([catalog1, catalog2])

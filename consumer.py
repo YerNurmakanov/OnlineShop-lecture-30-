@@ -14,6 +14,7 @@ class Consumer:
         if self.name and self.surname:
             Consumer.__consumers[self.__consumer_id] = f'{self.name} {self.surname}'
 
+
     @property
     def name(self):
         return self.__name
@@ -44,7 +45,7 @@ class Consumer:
     def get_consumers(cls):
         return Consumer.__consumers
 
-    def items_bought(self, consumer_orders):                              # Отслеживание заказов и итоговой стоимости покупки
+    def items_bought(self, consumer_orders):                                    # Отслеживание заказов и итоговой стоимости покупки
         for order in consumer_orders:
             print(f'{order.get_consumer_orders()}')
             print(f'{order.get_total_price()}')
@@ -64,13 +65,13 @@ class ShoppingList:
         print(" Consumer's shopping list:")
         return f'{ShoppingList.__items_to_buy}'
 
-    def add_item_to_shopping_list(self, item):                           # Добавление наименования товара в список
+    def add_item_to_shopping_list(self, item):                                   # Добавление наименования товара в список
         if item not in ShoppingList.__items_to_buy:
             ShoppingList.__items_to_buy.append(item)
         else:
             raise ValueError(f'{item} is already in a shopping list!')
 
-    def delete_item_from_shopping_list(self, item):                     # Добавление наименования товара в список
+    def delete_item_from_shopping_list(self, item):                              # Добавление наименования товара в список
         if item in ShoppingList.__items_to_buy:
             ShoppingList.__items_to_buy.remove(item)
         else:

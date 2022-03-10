@@ -38,9 +38,9 @@ class Administrator(consumer.Consumer):
     def track_consumers(self, consumers):
         print(' Information about consumers:')
         for consumer in consumers:
-            consumer.get_personal_info()
-            if consumer.purchase_list:
-                print(consumer.purchase_list)
+            consumer.get_consumer_personal_info()
+            if consumer.shopping_list:
+                print(consumer.shopping_list)
             print('')
 
     def track_catalogs(self, catalogs):
