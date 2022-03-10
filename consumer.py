@@ -48,6 +48,7 @@ class Consumer:
             print(f'{order.get_total_price()}')
 
 
+# Список товаров для покупки
 class ShoppingList:
 
     __items_to_buy = []
@@ -61,13 +62,13 @@ class ShoppingList:
         print(" Consumer's shopping list:")
         return f'{ShoppingList.__items_to_buy}'
 
-    def add_item_to_shopping_list(self, item):
+    def add_item_to_shopping_list(self, item):                          # Добавление наименования товара в список
         if item not in ShoppingList.__items_to_buy:
             ShoppingList.__items_to_buy.append(item)
         else:
             raise ValueError(f'{item} is already in a shopping list!')
 
-    def delete_item_from_shopping_list(self, item):
+    def delete_item_from_shopping_list(self, item):                    # Добавление наименования товара в список
         if item in ShoppingList.__items_to_buy:
             ShoppingList.__items_to_buy.remove(item)
         else:
