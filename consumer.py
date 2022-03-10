@@ -1,8 +1,4 @@
-import catalog
-
-
 class Consumer:
-
     __consumer_id = 0
     __consumers = {}
 
@@ -11,35 +7,66 @@ class Consumer:
         self.__consumer_id = Consumer.__consumer_id
         self.name = name
         self.surname = surname
-        self.purchase_list = None
+        self.shopping_list = None
         if self.name and self.surname:
             Consumer.__consumers[self.__consumer_id] = f'{self.name} {self.surname}'
 
-    def get_personal_info(self):
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, name):
+        if type(name) == str:
+            self.__name = name
+        else:
+            raise ValueError('Invalid data type!')
+
+    @property
+    def surname(self):
+        return self.__surname
+
+    @surname.setter
+    def surname(self, surname):
+        if type(surname) == str:
+            self.__surname = surname
+        else:
+            raise ValueError('Invalid data type!')
+
+    def get_consumer_personal_info(self):
+        print(' Consumer personal information:')
         print(f'{self.__consumer_id}: {self.name} {self.surname}')
 
     @classmethod
     def get_consumers(cls):
         return Consumer.__consumers
 
-
-class Administrator:
-
-    def track_consumers(self, consumers):
-        print('Information about consumers:')
-        for consumer in consumers:
-            consumer.get_personal_info()
-            if consumer.purchase_list:
-                print(consumer.purchase_list)
-            print('')
-
-    def add_item_to_catalog(self, item, price):
-        if item and price:
-            catalog.ShopCatalog.add_item_to_product_range(self, item, price)
-
-    def delete_item_from_catalog(self, item):
-        catalog.ShopCatalog.delete_item_from_product_range(self, item)
+    def items_bought(self, consumer_orders):
+        for order in consumer_orders:
+            print(f'{order.get_consumer_orders()}')
+            print(f'{order.get_total_price()}')
 
 
+class ShoppingList:
+    __items_to_buy = []
 
+    def __init__(self, item):
+        self.item = item
+        if self.item not in ShoppingList.__items_to_buy:
+            ShoppingList.__items_to_buy.append(self.item)
 
+    def __str__(self):
+        print(" Consumer's shopping list:")
+        return f'{ShoppingList.__items_to_buy}'
+
+    def add_item_to_shopping_list(self, item):
+        if item not in ShoppingList.__items_to_buy:
+            ShoppingList.__items_to_buy.append(item)
+        else:
+            raise ValueError(f'{item} is already in a shopping list!')
+
+    def delete_item_from_shopping_list(self, item):
+        if item in ShoppingList.__items_to_buy:
+            ShoppingList.__items_to_buy.remove(item)
+        else:
+            raise ValueError(f'There is no {item} in a shopping list!')
