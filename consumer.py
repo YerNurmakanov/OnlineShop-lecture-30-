@@ -71,7 +71,7 @@ class ShoppingList:
         else:
             raise ValueError(f'{item} is already in a shopping list!')
 
-    def delete_item_from_shopping_list(self, item):                              # Добавление наименования товара в список
+    def delete_item_from_shopping_list(self, item):                              # Удаление наименования товара из списка
         if item in ShoppingList.__items_to_buy:
             ShoppingList.__items_to_buy.remove(item)
         else:
