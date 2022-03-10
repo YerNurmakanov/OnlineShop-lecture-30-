@@ -1,4 +1,5 @@
 class Consumer:
+
     __consumer_id = 0
     __consumers = {}
 
@@ -48,6 +49,7 @@ class Consumer:
 
 
 class ShoppingList:
+
     __items_to_buy = []
 
     def __init__(self, item):
