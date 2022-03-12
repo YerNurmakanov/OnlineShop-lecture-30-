@@ -4,6 +4,7 @@ class ShopCatalog:
     def __init__(self, catalog_name):
         self.catalog_name = catalog_name
         ShopCatalog.__catalog_id += 1
+        self.__catalog_id = ShopCatalog.__catalog_id
         self.product_range = dict()
 
     def add_item_to_product_range(self, item, price):
@@ -21,7 +22,7 @@ class ShopCatalog:
 
     def get_catalog_info(self):
         print(' ID and catalog name:')
-        return f'{ShopCatalog.__catalog_id}: {self.catalog_name}'
+        return f'{self.__catalog_id}: {self.catalog_name}'
 
 
 class ConsumerOrder:
