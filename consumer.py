@@ -14,7 +14,6 @@ class Consumer:
         if self.name and self.surname:
             Consumer.__consumers[self.__consumer_id] = f'{self.name} {self.surname}'
 
-
     @property
     def name(self):
         return self.__name
