@@ -8,7 +8,7 @@ class Administrator(consumer.Consumer):
     def __init__(self, name, surname):
         super().__init__(name, surname)
         Administrator.__admin_id += 1
-        self.__id = Administrator.__admin_id
+        self.__admin_id = Administrator.__admin_id
 
     @property
     def name(self):
