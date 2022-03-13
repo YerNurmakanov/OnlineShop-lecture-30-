@@ -1,12 +1,13 @@
 import consumer
 import catalog
 
-class Administrator(consumer.Consumer):
+class Administrator:
 
     __admin_id = 0
 
     def __init__(self, name, surname):
-        super().__init__(name, surname)
+        self.name = name
+        self.surname = surname
         Administrator.__admin_id += 1
         self.__admin_id = Administrator.__admin_id
 
