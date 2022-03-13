@@ -16,12 +16,10 @@ admin.get_admin_personal_info()                                                 
 
 
 # Создаем список товаров для покупки
-simple_fellow.shopping_list = consumer.ShoppingList('bread')
-simple_fellow.shopping_list = consumer.ShoppingList('milk')
-
-print(simple_fellow.shopping_list)
-
-simple_fellow.shopping_list.add_item_to_shopping_list('pencil')
+simple_fellow.shopping_list = consumer.ShoppingList()
+simple_fellow.shopping_list.add_item_to_shopping_list('Milk')
+simple_fellow.shopping_list.add_item_to_shopping_list('Bread')
+simple_fellow.shopping_list.add_item_to_shopping_list('Pencil')
 print(simple_fellow.shopping_list)
 
 
@@ -79,8 +77,9 @@ simple_fellow.items_bought([Micky_order1, Micky_order2])                        
 
 # Пример реализации методов админа
 layman = consumer.Consumer('Looney', 'Toon')
-Looney_order = catalog.ConsumerOrder(layman)
-Looney_order.order_item('Milk', catalog1)
+layman.shopping_list = consumer.ShoppingList()
+layman.shopping_list.add_item_to_shopping_list('Laptop')
+layman.shopping_list.add_item_to_shopping_list('Smartphone')
 
 admin.track_consumers([simple_fellow, layman])
 admin.track_catalogs([catalog1, catalog2])

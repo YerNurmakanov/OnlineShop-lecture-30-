@@ -53,25 +53,21 @@ class Consumer:
 # Список товаров для покупки
 class ShoppingList:
 
-    __items_to_buy = []
-
-    def __init__(self, item):
-        self.item = item
-        if self.item not in ShoppingList.__items_to_buy:
-            ShoppingList.__items_to_buy.append(self.item)
+    def __init__(self):
+        self.__items_to_buy = list()
 
     def __str__(self):
         print(" Consumer's shopping list:")
-        return f'{ShoppingList.__items_to_buy}'
+        return f'{self.__items_to_buy}'
 
     def add_item_to_shopping_list(self, item):                                   # Добавление наименования товара в список
-        if item not in ShoppingList.__items_to_buy:
-            ShoppingList.__items_to_buy.append(item)
+        if item not in self.__items_to_buy:
+            self.__items_to_buy.append(item)
         else:
             raise ValueError(f'{item} is already in a shopping list!')
 
     def delete_item_from_shopping_list(self, item):                              # Удаление наименования товара из списка
-        if item in ShoppingList.__items_to_buy:
-            ShoppingList.__items_to_buy.remove(item)
+        if item in self.__items_to_buy:
+            self.__items_to_buy.remove(item)
         else:
             raise ValueError(f'There is no {item} in a shopping list!')
